@@ -6,6 +6,10 @@ DAT stands for Dialogue Authoring Tool, Flow indicates that it was made with Vue
 
 ![Screenshot](screenshot.png)
 
+**You can try it here:** https://maximryzhov.github.io/
+
+No login required. All data is saved in your local storage and can be downloaded to your device.
+
 ## What it can do
 - Run in browser
 - Build dialogue trees with three types of nodes: Dialogue, Branch and Script
