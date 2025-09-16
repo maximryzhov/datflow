@@ -1,0 +1,116 @@
+/* General widgets */
+button {
+  background: var(--btn-bg);
+  color: var(--text-color);
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background: var(--btn-hover);
+}
+
+button.square {
+  padding: 0;
+  margin: 0;
+  width: 32px;
+  height: 32px;
+  aspect-ratio: 1;
+  display: inline-grid;
+  box-sizing: border-box;
+  place-items: center;
+}
+
+button.small {
+  width: 24px;
+  height: 24px;
+}
+
+button.transparent {
+  background-color: transparent;
+  color: var(--text-muted);
+}
+button.transparent:hover {
+  color: var(--text-color);
+}
+button.transparent.selected {
+  color: var(--text-color);
+  background-color: var(--btn-bg);
+}
+
+button.fit {
+  width: 100%;
+  height: 100%;
+}
+
+button svg {
+  width: 16px;
+}
+
+.button-group {
+  display: flex;
+  gap: 8px;
+}
+
+.button-group > * {
+  flex: 1;
+  min-width: 0;
+}
+
+.button-group button {
+  overflow: hidden;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+}
+
+.button-group label {
+  flex: 1;
+  display: flex;
+  place-items: anchor-center;
+  justify-content: left;
+  gap: 16px;
+  cursor: pointer;
+}
+
+label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  padding: 2px;
+  margin: 0;
+}
+
+input:not([type="radio"]),
+select,
+textarea,
+.select-list {
+  border-radius: 4px;
+  padding: 6px 8px;
+  margin: 0;
+  background: var(--input-bg);
+  color: var(--text-color);
+  outline: 1px solid var(--input-outline);
+  border: none;
+}
+
+input:not([type="radio"]):focus,
+select:focus,
+textarea:focus,
+.select-list:focus {
+  outline: 1px solid var(--input-focus-outline);
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}

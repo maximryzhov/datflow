@@ -1,0 +1,98 @@
+/* Main */
+:root {
+  /* base grid unit */
+  --grid-base-size: 20px; /* Base grid size */
+  --grid-size: calc(var(--grid-base-size) * var(--grid-zoom, 1));
+  --grid-offset-x: 0px;
+  --grid-offset-y: 0px;
+
+  /* Core palette */
+  --bg-0: #121212;
+  --bg-1: #1e1e1e;
+  --bg-2: #242424;
+  --bg-3: #2e2e2e;
+  --bg-4: #383838;
+  --btn-bg: #3d3d3d;
+  --btn-hover: #4a4a4a;
+  --accent: #4a90e2;
+  --danger-outline: #a11;
+  --danger-text: #dd0000;
+
+  /* Derived vars */
+  --border-color: #2c2c2c;
+  --text-color: #e0e0e0;
+  --text-muted: #999999;
+  --text-ghost: #555555;
+  --title-text: #cccccc;
+  --boundary-button-bg: #2a2a2a;
+  --boundary-button-hover: #404040;
+  --input-bg: var(--bg-1);
+  --input-outline: var(--text-ghost);
+  --input-focus-outline: var(--accent);
+  --scrollbar-thumb: var(--bg-4);
+  --scrollbar-track: var(--bg-0);
+  --box-shadow: #f2f2f2;
+}
+
+:root.light {
+  /* Core palette */
+  --bg-0: #aaa; /* main background (used to be bg-2) */
+  --bg-1: #e2e2e2; /* top bar, side panel, tabs */
+  --bg-2: #d8d8d8; /* title-1 background */
+  --bg-3: #cccccc; /* title-2 background */
+  --bg-4: #c0c0c0; /* title-3 background */
+  --btn-bg: #d0d0d0; /* button default */
+  --btn-hover: #b8b8b8; /* button hover */
+  --accent: #4a90e2; /* accent (focus, highlights) */
+
+  /* Derived vars */
+  --border-color: #bbbbbb;
+  --text-color: #202020;
+  --text-muted: #555555;
+  --text-ghost: #999999;
+
+  --title-text: #111111;
+
+  --boundary-button-bg: #d5d5d5;
+  --boundary-button-hover: #bfbfbf;
+
+  --input-bg: #eee;
+  --input-outline: #aaaaaa;
+  --input-focus-outline: var(--accent);
+
+  --scrollbar-thumb: var(--text-ghost);
+  --scrollbar-track: var(--bg-4);
+  --box-shadow: #111111;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Inter, system-ui, Arial, sans-serif;
+  background: var(--bg-0);
+  color: var(--text-color);
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  height: 100%;
+  display: flex;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+}

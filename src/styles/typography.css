@@ -1,0 +1,25 @@
+/* Typography */
+.muted {
+  color: var(--text-muted);
+}
+
+.ghost {
+  color: var(--text-ghost);
+}
+
+.bright {
+  color: var(--text-color);
+}
+
+.italic {
+  font-style: italic;
+}
+
+.pre {
+  white-space: pre;
+}
+
+.subtitle {
+  font-weight: normal;
+  font-size: 0.75rem;
+}

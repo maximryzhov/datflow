@@ -1,0 +1,69 @@
+/* Node */
+.vue-flow__node {
+  border-radius: 6px;
+  width: 300px;
+  font-size: 12px;
+  text-align: left;
+  color: var(--vf-node-text);
+  background-color: var(--bg-1);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  cursor: default !important;
+}
+
+.vue-flow__node.selected {
+  box-shadow: 0px 0px 6px var(--box-shadow);
+}
+
+.vue-flow__node .title-1 {
+  background-color: var(--bg-0);
+}
+
+.vue-flow__node .title:first-child {
+  border-radius: 6px 6px 0 0;
+}
+
+.vue-flow__node .title:last-child {
+  border-radius: 0 0 6px 6px;
+}
+
+.vue-flow__node .node-option:last-of-type .section {
+  border-radius: 0 0 6px 6px;
+}
+
+.vue-flow__node .title.collapsed:nth-last-of-type(-n + 2) {
+  border-radius: 0 0 6px 6px;
+}
+
+.vue-flow__node .section {
+  padding: 16px;
+}
+
+.handle-wrapper {
+  min-height: 100%;
+  width: 0;
+}
+
+.handle-wrapper.collapsed {
+  min-height: 0;
+  height: 0;
+  width: 0;
+}
+
+.vue-flow__handle {
+  height: 12px;
+  width: 12px;
+  border-radius: 12px;
+}
+
+.node-input-handle,
+.node-output-handle {
+  position: relative;
+  transform: translate(-50%, -50%);
+}
+
+.node-option-output-handle {
+  position: relative;
+  transform: translate(-50%, -50%);
+  left: 0px;
+}

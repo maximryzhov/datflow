@@ -1,0 +1,22 @@
+/*  Animation for lists */
+.list-move {
+  transition: transform 0.2s ease;
+}
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.2s ease;
+}
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: scaleY(0.1);
+}
+.list-leave-active {
+  position: absolute;
+}
+.list-leave-active > * {
+  min-width: 300px;
+}
+.no-transition  * {
+  transition: none;
+}
