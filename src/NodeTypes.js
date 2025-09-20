@@ -19,7 +19,7 @@ const NODE_TYPES = {
   SCRIPT: {
     label: "Script",
     type: "script",
-    icon: NODE_ICONS.script,
+    icon: NODE_ICONS.text,
   },
 };
 

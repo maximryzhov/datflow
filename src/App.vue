@@ -104,7 +104,9 @@ watchEffect(() => {
 
 whenever(keys.delete, () => {
   if (runtimeState.selectedNode && runtimeState.selectedNode.type != NODE_TYPES.START.type) {
-    flowStore.methods.removeNode(runtimeState.selectedNode.id, runtimeState.selectedDialogue);
+    if (activeElement.value.tagName !== "INPUT" && activeElement.value.tagName !== "TEXTAREA") {
+      flowStore.methods.removeNode(runtimeState.selectedNode.id, runtimeState.selectedDialogue);
+    }
   }
 });
 

@@ -8,8 +8,8 @@ const props = defineProps(["id", "data"])
 </script>
 <template>
     <TextNode v-bind="$props" type="script">
-        <div class="muted italic pre" v-if="data.script">
-            {{ data.script }}
+        <div class="muted italic pre" v-if="data.text">
+            {{ data.text }}
         </div>
         <div v-else class="ghost italic">
             (no script)

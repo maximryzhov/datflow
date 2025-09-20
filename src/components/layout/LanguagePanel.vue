@@ -3,7 +3,7 @@
     <div class="title title-1">Languages in project</div>
     <div class="section">
         <div v-for="lang in translationsStore.state.languages" :key="lang" class="button-group"
-            style="max-width: 367px;">
+            style="max-width: 400px;">
             <label v-if="editingLang !== lang" style="font-size: 1rem; flex:1">
                 <input type="radio" :value="lang" v-model="translationsStore.state.selectedLanguage" />
                 <div class="bright">{{ lang }}</div>
@@ -27,7 +27,7 @@
     </div>
     <div class="title title-2">Add language</div>
     <div class="section">
-        <div class="button-group" style="max-width: 367px;">
+        <div class="button-group" style="max-width: 400px;">
             <ValidatedField v-model="newLanguage" :validators="languageCodeValidators">
                 <input placeholder="Language code" @keyup.enter="onAddLanguage">
             </ValidatedField>

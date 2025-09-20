@@ -1,0 +1,16 @@
+0.1.0
+2025/09/17
+- First version
+
+0.1.1
+2025/09/20
+- FIX: YAML export bug: incorrect target node exported
+- FIX: no line-breaks in Dialogue nodes
+- FIX: delete triggers node deletion even when focus is on input/textarea
+- Changed Script Node "script" attribute to "text" to keep consistent with Dialogue Node
+- Added "Key" header to exported CSV (required by Unity)
+- Changed default language from "EN" to "English(en)"
+- Increased language panel maxWidth
+- Updated package name
+- Updated readme
+- Added changelog

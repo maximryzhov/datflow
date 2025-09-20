@@ -44,7 +44,7 @@ export const defaultState = {
     nodesTextCollapsed: [],
   },
   translations: {
-    languages: ["EN"],
+    languages: ["English(en)"],
     labels: {
       id1: "string_0001",
       id2: "string_0002",
@@ -53,6 +53,6 @@ export const defaultState = {
       id1: { EN: "" },
       id2: { EN: "" },
     },
-    selectedLanguage: "EN",
+    selectedLanguage: "English(en)",
   },
 };

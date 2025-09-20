@@ -20,7 +20,7 @@ function dialogueToYAML() {
       newNode.text = translationsStore.state.labels[node.data.textString];
     }
     if (node.type == NODE_TYPES.SCRIPT.type) {
-      newNode.script = node.data.script;
+      newNode.text = node.data.text;
     }
     if (node.data.outputs) {
       newNode.options = [];
@@ -31,7 +31,7 @@ function dialogueToYAML() {
           // Find edge
           edges.forEach((edge) => {
             // Update outputs
-            if (edge.sourceHandle == o.id) {
+            if (edge.source == node.id && edge.sourceHandle == o.id) {
               newOutput.next = edge.targetNode.data.label;
             }
           });
@@ -119,8 +119,8 @@ function dialogueFromYAML(YAMLString) {
         translationsStore.state.strings[stringKey] = translations;
       }
     }
-    if (node.script) {
-      newNode.data.script = node.script;
+    if (node.text) {
+      newNode.data.text = node.text;
     }
     addedNodes.push(newNode);
   });

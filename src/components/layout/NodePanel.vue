@@ -74,7 +74,7 @@ watch(() => props.selectedNode?.id, () => {
                     <template v-if="selectedNode.type === 'script'">
                         <div class="col">
                             <label>Script source</label>
-                            <CustomTextarea style="resize: vertical;" v-model="selectedNode.data.script" />
+                            <CustomTextarea style="resize: vertical;" v-model="selectedNode.data.text" />
                         </div>
                     </template>
                 </div>

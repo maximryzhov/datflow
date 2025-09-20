@@ -73,7 +73,7 @@ function stringsToCSV(labelStore, stringTable) {
   let csvContent = "";
 
   // Create header row (first cell is empty)
-  csvContent += ",";
+  csvContent += "Key,";
   csvContent += languages.join(",") + "\n";
 
   // Create data rows

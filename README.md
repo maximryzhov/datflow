@@ -1,4 +1,4 @@
-# DATFlow 0.1.0
+# DATFlow 0.1.1
 
 Engine-agnostic dialogue authoring tool made with Vue and Vueflow.
 
@@ -23,6 +23,9 @@ No login required. All data is saved in your local storage and can be downloaded
 ## What it can't do
 - Run dialogue files for you
 - Validate scripts and expressions
+
+## Runtime implementations:
+- Unity 3D: https://github.com/maximryzhov/datflow-unity
 
 ## FAQ
 ### Why it exists?
@@ -97,18 +100,19 @@ Node12:
 It is very human-readable and could be easily edited with a simple text editor. With JSON or XML it would be more challenging.
 
 ## Roadmap
-- Write a C# runtime
-- Write a Python runtime
-- Write a JS runtime
-- Add user data to nodes
-- Bulk export of dialogue files
-- Export dialogues to JSON
-- Add a simple code editor for Script node
-- Delete connections with mouse or Delete key
-- Clone/copy nodes
-- Collapse sections in the Node inspector panel
-- Drag choices in the Node inspector panel
-- Add a playtesting environment with dummy variables and functions
+- [x] Write a C# runtime
+- [ ] Write a Python runtime
+- [ ] Write a JS runtime
+- [ ] Add user data to nodes
+- [ ] Add Custom type node
+- [ ] Bulk export of dialogue files
+- [ ] Export dialogues to JSON
+- [ ] Add a simple code editor for Script node
+- [ ] Delete connections with mouse or Delete key
+- [ ] Clone/copy nodes
+- [ ] Collapse sections in the Node inspector panel
+- [ ] Drag choices in the Node inspector panel
+- [ ] Add a playtesting environment with dummy variables and functions
 
 ## Known bugs
 - Drag-panning can freeze due to unknown reason
