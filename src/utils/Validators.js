@@ -1,4 +1,4 @@
-import { dialogueStore, flowStore, translationsStore } from "@/stores";
+import { dialogueStore, flowStore, translationsStore, runtimeState } from "@/stores";
 
 const required = { test: (v) => !!v, errorText: "Required" };
 

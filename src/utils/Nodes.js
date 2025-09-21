@@ -61,7 +61,6 @@ function makeNode(nodeType, position, label = null) {
     });
   }
   if (
-    nodeType == NODE_TYPES.DIALOGUE.type ||
     nodeType == NODE_TYPES.BRANCH.type
   ) {
     newNode.data.outputs.push({
@@ -70,9 +69,7 @@ function makeNode(nodeType, position, label = null) {
     });
     if (nodeType == NODE_TYPES.DIALOGUE.type) {
       const translation = translationsStore.methods.newTranslation();
-      const translation2 = translationsStore.methods.newTranslation();
       newNode.data.textString = translation.key;
-      newNode.data.outputs[0].textString = translation2.key;
     }
   }
   return newNode;

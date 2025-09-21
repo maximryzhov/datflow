@@ -23,7 +23,11 @@
                 <button class="btn" @click="deleteEntry" :disabled="!selectedLabel">Delete</button>
             </div>
         </div>
-
+        <div class="col">
+            <div class="button-group" style="max-width: 367px;">
+                <button class="btn" @click="removeEmptyStrings">Remove empty strings</button>
+            </div>
+        </div>
         <!-- Label and Text Editing -->
         <div v-if="selectedLabel" class="section">
             <div class="col">
@@ -104,5 +108,12 @@ async function onExportCSV() {
     await writable.close();
 }
 
-
+function removeEmptyStrings() {
+    Object.keys(translationsStore.state.strings).forEach(key => {
+        const translation = translationsStore.state.strings[key];
+        if (Object.values(translation).every(v => v === null || v === "")) {
+            translationsStore.methods.removeTranslation(key)
+        };
+    });
+}
 </script>

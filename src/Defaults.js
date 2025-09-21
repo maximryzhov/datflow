@@ -46,12 +46,12 @@ export const defaultState = {
   translations: {
     languages: ["English(en)"],
     labels: {
-      id1: "string_0001",
-      id2: "string_0002",
+      "1": "string_0001",
+      "2": "string_0002",
     },
     strings: {
-      id1: { EN: "" },
-      id2: { EN: "" },
+      "1": { "English(en)": "" },
+      "2": { "English(en)": "" },
     },
     selectedLanguage: "English(en)",
   },

@@ -87,15 +87,16 @@ function tryCompleteTransaction() {
 }
 
 const keys = useMagicKeys();
-const { ctrl, z, y } = keys;
+const { ctrl, KeyZ, KeyY } = keys;
 const activeElement = useActiveElement();
+
 watchEffect(() => {
-  if (ctrl.value && z.value) {
+  if (ctrl.value && KeyZ.value) {
     if (activeElement.value.tagName !== "INPUT" && activeElement.value.tagName !== "TEXTAREA") {
       historyStore.methods.undo();
     }
   }
-  if (ctrl.value && y.value) {
+  if (ctrl.value && KeyY.value) {
     if (activeElement.value.tagName !== "INPUT" && activeElement.value.tagName !== "TEXTAREA") {
       historyStore.methods.redo();
     }
@@ -111,11 +112,9 @@ whenever(keys.delete, () => {
 });
 
 const handler = (e) => {
-  if (e.ctrlKey && e.key.toLowerCase() === "s") {
+  if (e.ctrlKey && (e.keyCode === 83 || e.code === 'KeyS')) {
     e.preventDefault()
-    if (activeElement.value?.tagName !== "INPUT" && activeElement.value?.tagName !== "TEXTAREA") {
-      saveProject()
-    }
+    saveProject()
   }
 }
 

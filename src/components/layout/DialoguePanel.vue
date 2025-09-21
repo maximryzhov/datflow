@@ -34,15 +34,17 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed, nextTick } from 'vue';
+import { useVueFlow } from '@vue-flow/core';
 import { runtimeState, dialogueStore } from '@/stores';
+import { defaultState } from '@/Defaults';
 import SelectList from '@/components/widgets/SelectList.vue';
 import ValidatedField from '@/components/widgets/ValidatedField.vue';
 import { dialogueNameValidators } from '@/utils/Validators';
 import { exportYAML, importYAML } from "@/utils"
 
 const { newDialogue, removeDialogue } = dialogueStore.methods;
-
+const { fitView, setViewport } = useVueFlow();
 
 const dialogue = computed(() => {
     return dialogueStore.state.dialogues.find(d => d.id == runtimeState.selectedDialogue);
@@ -51,6 +53,12 @@ const dialogue = computed(() => {
 function onNewDialogue() {
     const dialogue = newDialogue();
     runtimeState.selectedDialogue = dialogue.id;
+    nextTick(() => {
+        fitView();
+        nextTick(() => {
+            setViewport((defaultState.flow.defaultViewport));
+        })
+    })
 }
 
 function onDeleteDialogue() {

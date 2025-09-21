@@ -14,3 +14,16 @@
 - Updated package name
 - Updated readme
 - Added changelog
+
+0.1.2
+2025/09/22
+- FIX: Unable to rename node
+- FIX: Script node icon missing
+- FIX: Ctrl+S shortcut doesn't work if focus is on input/textarea
+- FIX: Ctrl+S, Ctrl+Z, Ctrl+Y shortcuts depends on keyboard layout
+- FIX: In a new project, default strings have wrong language code
+- FIX: In a new project, default strings have wrong ids, making them unattached from nodes
+- When creating a new Dialogue Node, don't automatically add a choice
+- When creating a new Dialogue, fit to view and reset zoom
+- When creating a new translation string, use dialogue name as a base instead of just "string"
+- Added "Remove empty strings" button
