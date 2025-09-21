@@ -10,8 +10,7 @@
             </div>
         </div>
         <div class="col">
-            <SelectList style="max-height: 300px;" :rows="rows" :columns="columns" :on-select="onSelectClick"
-                v-model:selected="selectedLabel" />
+            <SelectList style="max-height: 300px;" :rows="rows" :columns="columns" v-model:selected="selectedLabel" />
         </div>
 
         <div class="col">
@@ -103,10 +102,6 @@ async function onExportCSV() {
     const writable = await fileHandle.createWritable();
     await writable.write(csvContent);
     await writable.close();
-}
-
-function onSelectClick(key) {
-    // selectedLabel.value = key;
 }
 
 
