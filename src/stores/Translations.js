@@ -70,6 +70,20 @@ const translationsStore = reactive({
       };
       runtimeState.commandQueue.push(command);
     },
+    renameLabel: (stringKey, newLabel) => {
+      const oldLabel = translationsStore.state.labels[stringKey];
+      const command = {
+        type: "rename",
+        object: "label",
+        do: () => {
+          translationsStore.state.labels[stringKey] = newLabel;
+        },
+        undo: () => {
+          translationsStore.state.labels[stringKey] = oldLabel;
+        },
+      };
+      runtimeState.commandQueue.push(command);
+    },
     newTranslation: () => {
       const stringKey = makeStringId();
       const stringLabel = makeStringLabel();

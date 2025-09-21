@@ -25,7 +25,8 @@
         </div>
         <div class="col">
             <div class="button-group" style="max-width: 367px;">
-                <button class="btn" @click="removeEmptyStrings">Remove empty strings</button>
+                <button class="btn" @click="removeEmptyStrings">Remove empty</button>
+                <button class="btn" @click="autoNameLabels">Auto name labels</button>
             </div>
         </div>
         <!-- Label and Text Editing -->
@@ -49,12 +50,13 @@
 
 <script setup>
 import { computed, ref } from 'vue'
-import { translationsStore } from "@/stores"
+import { flowStore, runtimeState, translationsStore, dialogueStore } from "@/stores"
 import CustomTextarea from '@/components/widgets/CustomTextarea.vue';
 import SelectList from '@/components/widgets/SelectList.vue';
 import ValidatedField from '@/components/widgets/ValidatedField.vue';
 import { stringsFromCSV, stringsToCSV } from '@/utils';
 import { stringLabelValidators } from '@/utils/Validators';
+import NODE_TYPES from '@/NodeTypes';
 
 const { newTranslation, removeTranslation, moveTranslation } = translationsStore.methods;
 
@@ -109,11 +111,47 @@ async function onExportCSV() {
 }
 
 function removeEmptyStrings() {
-    Object.keys(translationsStore.state.strings).forEach(key => {
+    Object.keys(translationsStore.state.labels).forEach(key => {
         const translation = translationsStore.state.strings[key];
         if (Object.values(translation).every(v => v === null || v === "")) {
             translationsStore.methods.removeTranslation(key)
         };
     });
+}
+
+function autoNameLabels() {
+    flowStore.state[runtimeState.selectedDialogue].nodes.forEach(n => {
+        if (n.type != NODE_TYPES.DIALOGUE.type) {
+            return;
+        }
+        if (n.data.textString) {
+            const label = translationsStore.state.labels[n.data.textString];
+            const newLabel = renameLabel(label);
+            if (!label) return;
+            if (newLabel != label)
+                translationsStore.methods.renameLabel(n.data.textString, newLabel);
+
+        }
+        if (n.data.outputs) {
+            n.data.outputs.forEach(o => {
+                if (o.textString) {
+                    const label = translationsStore.state.labels[o.textString];
+                    if (!label) return;
+                    const newLabel = renameLabel(label);
+                    if (newLabel != label)
+                        translationsStore.methods.renameLabel(o.textString, newLabel);
+                }
+            })
+        }
+    })
+}
+
+function renameLabel(label) {
+    const parts = label.split("_");
+    const suffix = parts[parts.length - 1];
+    let prefix = dialogueStore.state.dialogues.find(d => d.id == runtimeState.selectedDialogue).name;
+    prefix = prefix.replace(" ", "_");
+    const newLabel = `${prefix}_${suffix}`;
+    return newLabel;
 }
 </script>
