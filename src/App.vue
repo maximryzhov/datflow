@@ -104,9 +104,12 @@ watchEffect(() => {
 });
 
 whenever(keys.delete, () => {
-  if (runtimeState.selectedNode && runtimeState.selectedNode.type != NODE_TYPES.START.type) {
-    if (activeElement.value.tagName !== "INPUT" && activeElement.value.tagName !== "TEXTAREA") {
+  if (activeElement.value.tagName !== "INPUT" && activeElement.value.tagName !== "TEXTAREA") {
+    if (runtimeState.selectedNode && runtimeState.selectedNode.type != NODE_TYPES.START.type) {
       flowStore.methods.removeNode(runtimeState.selectedNode.id, runtimeState.selectedDialogue);
+    }
+    else if (runtimeState.selectedEdge) {
+      flowStore.methods.removeEdge(runtimeState.selectedEdge, runtimeState.selectedDialogue);
     }
   }
 });

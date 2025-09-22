@@ -18,6 +18,7 @@ const runtimeState = reactive({
   activeTabRight: "Nodes",
   selectedDialogue: "id1",
   selectedNode: null,
+  selectedEdge: null,
   showMenu: false,
   menuPosition: null,
   endPosition: null,

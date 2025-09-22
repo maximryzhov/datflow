@@ -122,6 +122,7 @@ const flowStore = reactive({
           flowStore.state[dialogueId].edges = flowStore.state[
             dialogueId
           ].edges.filter((e) => !newEdges.map((ne) => ne.id).includes(e.id));
+          counterStore.state.edgeCounter--;
         },
       };
       runtimeState.commandQueue.push(command);

@@ -13,7 +13,7 @@ import { saveToLocalStorage } from '@/utils';
 import { makeEdgeId } from '@/utils/MakeID';
 
 const {
-    getSelectedNodes, addSelectedNodes,
+    getSelectedNodes, addSelectedNodes, getSelectedEdges,
     onConnect, onConnectStart, onConnectEnd, onNodeDragStart, onNodeDragStop,
     onViewportChange, onPaneContextMenu,
     screenToFlowCoordinate,
@@ -110,7 +110,7 @@ onPaneContextMenu((e) => {
 })
 
 const onMoveStart = () => {
-    runtimeState.showMenu = false; 
+    runtimeState.showMenu = false;
     runtimeState.pendingConnection = null;
 }
 
@@ -121,10 +121,24 @@ watch(getSelectedNodes, (newVal, oldVal) => {
     if (added.length > 0) {
         // Select last node
         const lastSelected = added[added.length - 1]
-        runtimeState.selectedNode = lastSelected
+        runtimeState.selectedNode = lastSelected;
+        runtimeState.selectedEdge = null;
     }
     else {
         runtimeState.selectedNode = null;
+    }
+});
+
+watch(getSelectedEdges, (newVal, oldVal) => {
+    const added = newVal.filter(n => !oldVal.includes(n))
+    if (added.length > 0) {
+        // Select last node
+        const lastSelected = added[added.length - 1]
+        runtimeState.selectedEdge = lastSelected
+        runtimeState.selectedNode = null;
+    }
+    else {
+        runtimeState.selectedEdge = null;
     }
 });
 
