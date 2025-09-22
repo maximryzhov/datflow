@@ -19,12 +19,12 @@ export const defaultState = {
         type: "dialogue",
         data: {
           label: "Dialogue 1",
-          textString: "1",
+          textString: "id1",
           outputs: [
             {
               id: "1",
               order: 0,
-              textString: "2",
+              textString: "id2",
             },
           ],
         },
@@ -46,12 +46,12 @@ export const defaultState = {
   translations: {
     languages: ["English(en)"],
     labels: {
-      "1": "string_0001",
-      "2": "string_0002",
+      "id1": "string_0001",
+      "id2": "string_0002",
     },
     strings: {
-      "1": { "English(en)": "" },
-      "2": { "English(en)": "" },
+      "id1": { "English(en)": "" },
+      "id2": { "English(en)": "" },
     },
     selectedLanguage: "English(en)",
   },
