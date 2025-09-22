@@ -1,4 +1,4 @@
-# DATFlow 0.1.2
+# DATFlow 0.1.3
 
 Engine-agnostic dialogue authoring tool made with Vue and Vueflow.
 
