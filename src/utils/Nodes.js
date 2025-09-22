@@ -60,17 +60,15 @@ function makeNode(nodeType, position, label = null) {
       order: 0,
     });
   }
-  if (
-    nodeType == NODE_TYPES.BRANCH.type
-  ) {
+  if (nodeType == NODE_TYPES.BRANCH.type) {
     newNode.data.outputs.push({
       id: makeOutputId(newNode),
       order: 0,
     });
-    if (nodeType == NODE_TYPES.DIALOGUE.type) {
-      const translation = translationsStore.methods.newTranslation();
-      newNode.data.textString = translation.key;
-    }
+  }
+  if (nodeType == NODE_TYPES.DIALOGUE.type) {
+    const translation = translationsStore.methods.newTranslation();
+    newNode.data.textString = translation.key;
   }
   return newNode;
 }
