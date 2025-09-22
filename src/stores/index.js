@@ -32,6 +32,7 @@ const resetProjectState = () => {
   dialogueStore.state = deepCopy(defaultState.dialogues);
   flowStore.state = { id1: deepCopy(defaultState.flow) };
   translationsStore.state = deepCopy(defaultState.translations);
+  counterStore.state = deepCopy(defaultState.counters);
   historyStore.methods.reset();
 };
 

@@ -55,4 +55,8 @@ export const defaultState = {
     },
     selectedLanguage: "English(en)",
   },
+  counters: {
+    nodeCounter: 3,
+    edgeCounter: 2
+  }
 };
