@@ -3,7 +3,7 @@ import { dialogueStore, runtimeState, translationsStore } from "@/stores";
 let counter;
 const makeStringLabel = () => {
   if (!counter) {
-    counter = Object.keys(translationsStore.state.labels).length;
+    counter = Object.keys(translationsStore.state.labels).length + 1;
   }
   let newLabel = "";
   do {
