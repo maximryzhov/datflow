@@ -7,7 +7,7 @@ const counterStore = reactive({
   state: defaultState.counters,
   methods: {
     nodeCounter: () => counterStore.state.nodeCounter++,
-    edgeCounter: () => counterStore.state.nodeCounter++,
+    edgeCounter: () => counterStore.state.edgeCounter++,
   },
 });
 
